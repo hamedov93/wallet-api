@@ -1,8 +1,8 @@
-import { IsDecimal, IsInt, IsNotEmpty, IsNumber, IsPositive, IsString, MaxLength, Min } from "@nestjs/class-validator";
+import { IsInt, IsNotEmpty, IsNumber, IsPositive, IsString, MaxLength, Min } from "@nestjs/class-validator";
 import { ApiProperty } from "@nestjs/swagger";
 
 export class CreateWalletDto {
-  @ApiProperty({ type: String, description: 'Three letter currency code SAR, AED or USD' })
+  @ApiProperty({ type: String, description: 'Three letter currency code', example: 'SAR', examples: ['SAR', 'AED', 'USD'] })
   @IsNotEmpty()
   @IsString()
   @MaxLength(3)
