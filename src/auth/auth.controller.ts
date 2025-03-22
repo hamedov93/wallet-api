@@ -5,6 +5,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { AuthUser } from './decorators/auth-user.decorator';
 import { User } from 'src/user/user.entity';
 import { UserDto } from 'src/user/user.dto';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
 @Controller('api/v1/auth')
 export class AuthController {
@@ -33,6 +34,7 @@ export class AuthController {
     };
   }
 
+  @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @Get('user')
   async user(@AuthUser() user: User) {

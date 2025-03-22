@@ -25,6 +25,7 @@ Refere to the API documentation at http://localhost:3000/docs for the following 
 
 - Register a new account using `/api/v1/auth/signup` endpoint.
 - Login to get a new access token using `/api/v1/auth/login` endpoint.
+- Use the token aquired from login as Bearer auth token in all of the following requests.
 - Create a new wallet with the desired currency. POST `/api/v1/wallet`
 - Use the endpoint GET `/api/v1/wallet` to list all your wallets.
 - Topup wallet balance using the endpoint POST `/api/v1/wallet/topup`

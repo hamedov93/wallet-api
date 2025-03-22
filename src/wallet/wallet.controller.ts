@@ -4,11 +4,13 @@ import { AuthGuard } from '@nestjs/passport';
 import { AuthUser } from '../auth/decorators/auth-user.decorator';
 import { User } from 'src/user/user.entity';
 import { ChangeBalanceDto, CreateWalletDto } from './wallet.dto';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
 @Controller('api/v1/wallet')
 export class WalletController {
   constructor(private readonly walletService: WalletService) {}
 
+  @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @Post('topup')
   async topup(@Body() dto: ChangeBalanceDto, @AuthUser() user: User) {
@@ -20,6 +22,7 @@ export class WalletController {
     };
   }
 
+  @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @Post('charge')
   async charge(@Body() dto: ChangeBalanceDto, @AuthUser() user: User) {
@@ -33,6 +36,7 @@ export class WalletController {
   /**
    * Create wallet
    */
+  @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @Post()
   async createWallet(@Body() dto: CreateWalletDto, @AuthUser() user: User) {
@@ -42,6 +46,7 @@ export class WalletController {
   /**
    * Get list of wallets
    */
+  @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @Get()
   async wallets(@AuthUser() user: User) {
@@ -51,6 +56,7 @@ export class WalletController {
   /**
    * Get wallet by ID
    */
+  @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @Get(':id')
   async wallet(@AuthUser() user: User, @Param('id') id: number) {
