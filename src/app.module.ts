@@ -28,7 +28,7 @@ import { JwtModule } from '@nestjs/jwt';
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
         type: 'sqlite',
-        database: `database/${configService.get<string>('DATABASE_NAME', 'ebra')}`,
+        database: `database/${configService.get<string>('DATABASE_NAME', 'ebra')}.db`,
         synchronize: true,
         migrationsRun: true,
         migrations: [`/database/migrations/**/*.{ts,js}`],
