@@ -3,7 +3,7 @@
 Simple Wallet API
 
 ## Project setup
-Make sure you're running NodeJS version 20.11 or higher
+Make sure you're running NodeJS version 20.11 or higher and run the following command at project root to install all dependencies.
 
 ```bash
 $ npm ci
@@ -11,7 +11,7 @@ $ npm ci
 
 ## Compile and run the project
 
-First, copy .env.example file to .env to configure database name and JWT Secret.
+First, copy .env.example file to .env to configure database name and JWT Secret and run the following command to start the project.
 
 ```bash
 # development
